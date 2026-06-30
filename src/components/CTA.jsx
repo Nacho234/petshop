@@ -1,4 +1,5 @@
 import { useReducedMotion } from 'motion/react'
+import { Link } from 'react-router-dom'
 import { ArrowRight } from '../icons'
 import Reveal from './Reveal'
 import ctaVideo from '../assets/cta-video.mp4'
@@ -47,8 +48,8 @@ export default function CTA() {
             <p className="mx-auto mt-4 max-w-[42ch] text-base text-white/90 sm:text-lg">
               Mirá el catálogo completo y encontrá todo lo que necesita, sin moverte de casa.
             </p>
-            <a
-              href="#catalogo"
+            <Link
+              to="/catalogo"
               className="group mt-8 inline-flex cursor-pointer items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold text-leaf-deep shadow-lg transition-all duration-200 hover:bg-cream active:translate-y-px"
             >
               Ver catálogo
@@ -57,7 +58,7 @@ export default function CTA() {
                 weight="bold"
                 className="transition-transform duration-200 group-hover:translate-x-0.5"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </Reveal>

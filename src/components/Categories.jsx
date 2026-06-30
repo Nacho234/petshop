@@ -1,8 +1,11 @@
 import { motion, useReducedMotion } from 'motion/react'
+import { Link } from 'react-router-dom'
 import { categories } from '../data'
 import Reveal from './Reveal'
 
-export default function Categories({ onPick }) {
+const MotionLink = motion.create(Link)
+
+export default function Categories() {
   const reduce = useReducedMotion()
 
   return (
@@ -28,9 +31,8 @@ export default function Categories({ onPick }) {
       <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-x-12 gap-y-14 sm:grid-cols-3">
         {categories.map((c, i) => (
           <Reveal key={c.id} delay={i * 0.06}>
-            <motion.a
-              href="#catalogo"
-              onClick={() => onPick?.(c.id)}
+            <MotionLink
+              to={`/catalogo?cat=${c.id}`}
               aria-label={`Ver productos de ${c.label}`}
               whileHover={reduce ? undefined : { y: -6 }}
               transition={{ type: 'spring', stiffness: 260, damping: 22 }}
@@ -50,7 +52,7 @@ export default function Categories({ onPick }) {
                 {c.label}
               </h3>
               <p className="mt-1 text-sm text-ink-soft">{c.count} productos</p>
-            </motion.a>
+            </MotionLink>
           </Reveal>
         ))}
       </div>

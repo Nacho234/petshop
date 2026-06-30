@@ -1,12 +1,13 @@
+import { Link } from 'react-router-dom'
 import { WhatsappLogo, InstagramLogo, MapPin, Clock } from '../icons'
 
 const cols = [
   {
     title: 'Categorías',
     links: [
-      { label: 'Alimento balanceado', href: '#catalogo' },
-      { label: 'Accesorios de mascotas', href: '#catalogo' },
-      { label: 'Juguetes de entretenimiento', href: '#catalogo' },
+      { label: 'Alimento balanceado', to: '/catalogo?cat=alimento' },
+      { label: 'Accesorios de mascotas', to: '/catalogo?cat=accesorios' },
+      { label: 'Juguetes de entretenimiento', to: '/catalogo?cat=juguetes' },
     ],
   },
   {
@@ -25,9 +26,9 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* brand */}
           <div className="lg:col-span-2">
-            <a href="#top" className="flex items-center gap-2.5" aria-label="Zafari · inicio">
+            <Link to="/" className="flex items-center gap-2.5" aria-label="Zafari · inicio">
               <img src="/logo-zafari.png" alt="Zafari" width={160} height={160} className="h-14 w-auto mix-blend-multiply" />
-            </a>
+            </Link>
             <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-ink-soft">
               Aventura para tus mascotas. Alimento balanceado, accesorios y juguetes, con
               asesoramiento real y envíos en todo Rosario.
@@ -77,12 +78,21 @@ export default function Footer() {
               <ul className="mt-4 space-y-3">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a
-                      href={l.href}
-                      className="text-sm text-ink-soft transition-colors duration-200 hover:text-leaf"
-                    >
-                      {l.label}
-                    </a>
+                    {l.to ? (
+                      <Link
+                        to={l.to}
+                        className="text-sm text-ink-soft transition-colors duration-200 hover:text-leaf"
+                      >
+                        {l.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={l.href}
+                        className="text-sm text-ink-soft transition-colors duration-200 hover:text-leaf"
+                      >
+                        {l.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
