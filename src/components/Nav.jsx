@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { CaretDown } from '../icons'
+import { CaretDown, ShoppingCartSimple } from '../icons'
 import { categories } from '../data'
+import { useCart } from '../cart/cartStore'
 
 const links = [
   { to: '/catalogo', label: 'Catálogo' },
@@ -10,6 +11,7 @@ const links = [
 ]
 
 export default function Nav() {
+  const { totalItems, setOpen } = useCart()
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-cream/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
@@ -78,12 +80,28 @@ export default function Nav() {
           ))}
         </nav>
 
-        <Link
-          to="/catalogo"
-          className="cursor-pointer rounded-full bg-leaf px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-leaf-deep active:translate-y-px"
-        >
-          Ver catálogo
-        </Link>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label={`Abrir carrito${totalItems ? ` (${totalItems})` : ''}`}
+            className="relative grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-line bg-surface text-ink transition-colors duration-200 hover:border-leaf hover:text-leaf"
+          >
+            <ShoppingCartSimple size={20} weight="bold" />
+            {totalItems > 0 && (
+              <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-leaf px-1 text-xs font-bold text-white">
+                {totalItems}
+              </span>
+            )}
+          </button>
+
+          <Link
+            to="/catalogo"
+            className="hidden cursor-pointer rounded-full bg-leaf px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-leaf-deep active:translate-y-px sm:block"
+          >
+            Ver catálogo
+          </Link>
+        </div>
       </div>
     </header>
   )

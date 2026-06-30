@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Nav from './Nav'
 import Footer from './Footer'
+import Cart from './Cart'
 
 // Al cambiar de ruta sube al inicio; si hay hash (#seccion), scrollea ahí.
 function ScrollManager() {
@@ -24,6 +25,7 @@ export default function Layout() {
     <div className="min-h-[100dvh] bg-cream">
       <ScrollManager />
       <Nav />
+      <Cart />
       <main>
         <Outlet />
       </main>

@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { Heart, PawPrint } from '../icons'
+import { Heart, PawPrint, Plus } from '../icons'
 import { products, categories, fmtPrice } from '../data'
+import { useCart } from '../cart/cartStore'
 
 const filters = [{ id: 'todos', label: 'Todos' }, ...categories.map((c) => ({ id: c.id, label: c.label }))]
 
@@ -12,6 +13,7 @@ function findActiveCategory(active) {
 
 function ProductCard({ p, reduce }) {
   const [fav, setFav] = useState(false)
+  const { addItem } = useCart()
   return (
     <motion.article
       layout={!reduce}
@@ -53,12 +55,14 @@ function ProductCard({ p, reduce }) {
           <span className="font-display text-lg font-bold tabular-nums text-ink">
             {fmtPrice(p.price)}
           </span>
-          <a
-            href="#contacto"
-            className="cursor-pointer rounded-full border border-line px-3.5 py-1.5 text-xs font-semibold text-ink transition-colors duration-200 hover:border-leaf hover:bg-leaf hover:text-white"
+          <button
+            type="button"
+            onClick={() => addItem(p)}
+            className="inline-flex cursor-pointer items-center gap-1 rounded-full border border-line px-3.5 py-1.5 text-xs font-semibold text-ink transition-colors duration-200 hover:border-leaf hover:bg-leaf hover:text-white"
           >
-            Consultar
-          </a>
+            <Plus size={14} weight="bold" />
+            Agregar
+          </button>
         </div>
       </div>
     </motion.article>
