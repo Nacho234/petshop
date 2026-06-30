@@ -22,7 +22,7 @@ function ScrollManager() {
 
 export default function Layout() {
   return (
-    <div className="min-h-[100dvh] bg-cream">
+    <div className="min-h-[100dvh] bg-white">
       <ScrollManager />
       <Nav />
       <Cart />

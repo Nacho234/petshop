@@ -86,7 +86,7 @@ export default function Catalog({ active, setActive }) {
     : []
 
   return (
-    <section id="catalogo" className="scroll-mt-20 bg-cream-deep/60 py-20 lg:py-28">
+    <section id="catalogo" className="scroll-mt-20 bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>

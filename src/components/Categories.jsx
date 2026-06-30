@@ -2,8 +2,14 @@ import { motion, useReducedMotion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { categories } from '../data'
 import Reveal from './Reveal'
+import perro from '../assets/categorias/perro.jpg'
+import gato from '../assets/categorias/gato.jpg'
+import juguete from '../assets/categorias/juguete.jpg'
 
 const MotionLink = motion.create(Link)
+
+// Fotos reales por categoría (el resto usa su imagen por defecto).
+const fotos = { alimento: perro, accesorios: gato, juguetes: juguete }
 
 export default function Categories() {
   const reduce = useReducedMotion()
@@ -40,12 +46,14 @@ export default function Categories() {
             >
               <div className="aspect-square w-full overflow-hidden rounded-full bg-cream-deep shadow-sm ring-4 ring-leaf-soft ring-offset-4 ring-offset-cream transition-all duration-300 group-hover:shadow-md group-hover:ring-leaf">
                 <img
-                  src={c.img}
+                  src={fotos[c.id] || c.img}
                   alt={`Foto de ${c.label}`}
                   width={440}
                   height={440}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  className={`h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110 ${
+                    fotos[c.id] ? 'object-top' : ''
+                  }`}
                 />
               </div>
               <h3 className="mt-6 font-display text-xl font-bold text-ink transition-colors duration-200 group-hover:text-leaf">
