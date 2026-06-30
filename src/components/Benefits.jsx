@@ -1,11 +1,11 @@
-import { Truck, ChatTeardropText, ShieldCheck, PawPrint } from '../icons'
+import { Truck, ChatTeardropText, CreditCard, PawPrint } from '../icons'
 import Reveal from './Reveal'
 
 const items = [
-  { icon: Truck, title: 'Envíos a todo el país', text: 'Despachamos en 24-48 h. Gratis en compras desde $35.000.' },
+  { icon: Truck, title: 'Envíos en todo Rosario', text: 'Despachamos en 24-48 h. Coordinamos la entrega por WhatsApp.' },
   { icon: ChatTeardropText, title: 'Atención por WhatsApp', text: 'Te asesoramos sobre alimento y accesorios antes de comprar.' },
-  { icon: PawPrint, title: 'Marcas que confían', text: 'Royal Canin, Old Prince, Vitalcan, Tetra y más, siempre frescas.' },
-  { icon: ShieldCheck, title: 'Compra segura', text: 'Pagás contra entrega o por transferencia. Sin sorpresas.' },
+  { icon: PawPrint, title: 'Marcas que confían', text: 'Royal Canin, Old Prince, Vitalcan, Pro Plan y más, siempre frescas.' },
+  { icon: CreditCard, title: 'Medios de pago', text: 'Efectivo o transferencia: 10% off. Tarjetas: 1 cuota sin interés.' },
 ]
 
 export default function Benefits() {
