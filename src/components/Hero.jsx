@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, ChatCircleDots, Storefront } from '../icons'
-import heroPerro from '../assets/hero-perro.jpg'
 
 export default function Hero() {
   const reduce = useReducedMotion()
@@ -19,7 +18,7 @@ export default function Hero() {
       />
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-14 sm:px-6 md:gap-8 lg:grid-cols-12 lg:pb-24 lg:pt-20">
         {/* Copy */}
-        <div className="lg:col-span-6">
+        <div className="lg:col-span-5">
           <motion.span
             {...rise(0)}
             className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-leaf"
@@ -70,15 +69,21 @@ export default function Hero() {
         {/* Asset */}
         <motion.div
           {...rise(0.18)}
-          className="relative lg:col-span-6"
+          className="relative lg:col-span-7"
         >
-          <div className="relative overflow-hidden rounded-[2rem] border border-line bg-cream-deep shadow-[0_30px_60px_-30px_rgba(36,95,71,0.45)]">
+          <div className="relative">
+            {/* logo de marca sobre la imagen, sin recuadro */}
             <img
-              src={heroPerro}
-              alt="Perro feliz sentado en el pasto rodeado de juguetes"
-              width={1200}
-              height={900}
-              className="h-full w-full object-cover"
+              src="/logo-zafari.png"
+              aria-hidden
+              className="pointer-events-none absolute left-3 top-3 z-10 h-14 w-auto mix-blend-multiply sm:left-5 sm:top-5 sm:h-20"
+            />
+            <img
+              src="/hero-mascotas.jpg"
+              alt="Un perro y un gato, las mascotas de Zafari"
+              width={1280}
+              height={1040}
+              className="w-full rounded-[2rem] object-cover"
               loading="eager"
               fetchPriority="high"
             />

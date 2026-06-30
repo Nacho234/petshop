@@ -28,7 +28,7 @@ export default function Footer() {
           {/* brand */}
           <div className="lg:col-span-2">
             <a href="#top" className="flex items-center gap-2.5" aria-label="Zafari · inicio">
-              <img src="/logo-zafari.png" alt="Zafari" width={132} height={56} className="h-11 w-auto" />
+              <img src="/logo-zafari.png" alt="Zafari" width={160} height={160} className="h-14 w-auto mix-blend-multiply" />
             </a>
             <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-ink-soft">
               Aventura para tus mascotas. Todo para perros, gatos, aves y peces, con asesoramiento

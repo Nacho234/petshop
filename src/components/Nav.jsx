@@ -2,6 +2,7 @@ const links = [
   { href: '#categorias', label: 'Categorías' },
   { href: '#catalogo', label: 'Catálogo' },
   { href: '#peluqueria', label: 'Peluquería' },
+  { href: '#mayorista', label: 'Por mayor' },
   { href: '#beneficios', label: 'Beneficios' },
 ]
 
@@ -9,13 +10,13 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/70 bg-cream/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
-        <a href="#top" className="flex items-center gap-2.5" aria-label="Zafari · inicio">
+        <a href="#top" className="flex items-center" aria-label="Zafari · inicio">
           <img
             src="/logo-zafari.png"
             alt="Zafari"
-            width={132}
-            height={56}
-            className="h-10 w-auto"
+            width={160}
+            height={160}
+            className="h-14 w-auto mix-blend-multiply"
           />
         </a>
 
