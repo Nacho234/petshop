@@ -10,25 +10,20 @@ export default function Hero() {
   })
 
   return (
-    <section id="top" className="relative overflow-hidden bg-cream">
-      {/* background image */}
-      <img
-        src="/hero-bg.jpg"
-        alt="Perro con sus juguetes en el pasto"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-right"
-        loading="eager"
-        fetchPriority="high"
-      />
-      {/* cream wash for text legibility on the left */}
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-r from-cream from-30% via-cream/85 to-transparent lg:via-cream/60"
-      />
-      {/* soft bottom fade into the page */}
-      <div aria-hidden className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-cream to-transparent" />
+    <section id="top" className="bg-cream">
+      <div className="relative mx-auto max-w-7xl">
+        {/* imagen completa, a todo el ancho (sin recortar) */}
+        <img
+          src="/hero-bg.jpg"
+          alt="Perro con sus juguetes en el pasto"
+          className="block h-auto w-full"
+          loading="eager"
+          fetchPriority="high"
+        />
 
-      <div className="relative mx-auto flex min-h-[32rem] max-w-7xl items-center px-4 py-16 sm:px-6 lg:min-h-[42rem]">
-        <div className="max-w-xl">
+        {/* contenido: debajo de la imagen en mobile, superpuesto en desktop */}
+        <div className="px-4 pb-12 pt-8 sm:px-6 lg:absolute lg:inset-0 lg:flex lg:items-center lg:px-10 lg:py-0">
+          <div className="max-w-xl lg:max-w-[48%]">
           <motion.span
             {...rise(0)}
             className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-leaf"
@@ -88,6 +83,7 @@ export default function Hero() {
               <span className="text-ink-soft">Lun a Sáb · 9 a 19:30 hs</span>
             </span>
           </motion.div>
+          </div>
         </div>
       </div>
     </section>
