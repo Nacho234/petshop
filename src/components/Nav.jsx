@@ -5,7 +5,7 @@ const links = [
   { href: '#catalogo', label: 'Catálogo' },
   { href: '#peluqueria', label: 'Peluquería' },
   { href: '#mayorista', label: 'Por mayor' },
-  { href: '#beneficios', label: 'Beneficios' },
+  { href: '#ubicacion', label: 'Ubicación' },
 ]
 
 export default function Nav({ onPick }) {

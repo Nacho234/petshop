@@ -8,6 +8,7 @@ import Grooming from './components/Grooming'
 import Benefits from './components/Benefits'
 import Wholesale from './components/Wholesale'
 import CTA from './components/CTA'
+import Map from './components/Map'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Benefits />
         <Wholesale />
         <CTA />
+        <Map />
       </main>
       <Footer />
     </div>
