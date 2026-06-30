@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
+import Brands from './components/Brands'
 import Categories from './components/Categories'
 import Catalog from './components/Catalog'
 import Grooming from './components/Grooming'
@@ -18,6 +19,7 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
+        <Brands />
         <Categories onPick={setActive} />
         <Catalog active={active} setActive={setActive} />
         <Grooming />
