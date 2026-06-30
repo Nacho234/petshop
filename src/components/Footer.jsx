@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { WhatsappLogo, InstagramLogo, MapPin, Clock, ArrowUpRight } from '../icons'
+import { WhatsappLogo, InstagramLogo, MapPin, Clock, ArrowUpRight, CreditCard } from '../icons'
 
 const ADDRESS = 'Avellaneda 1796, Rosario, Santa Fe'
 const MAP_EMBED = `https://maps.google.com/maps?q=${encodeURIComponent(ADDRESS)}&z=16&output=embed`
@@ -22,6 +22,8 @@ const cols = [
     ],
   },
 ]
+
+const payments = ['Mercado Pago', 'Tarjeta de crédito', 'Tarjeta de débito', 'Efectivo', 'Transferencia']
 
 export default function Footer() {
   return (
@@ -134,7 +136,25 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-line pt-6 text-sm text-ink-soft sm:flex-row sm:items-center">
+        {/* medios de pago */}
+        <div className="mt-12 border-t border-line pt-6">
+          <h3 className="flex items-center gap-2 font-display text-sm font-bold uppercase tracking-wide text-ink">
+            <CreditCard size={18} weight="fill" className="text-leaf" />
+            Medios de pago
+          </h3>
+          <div className="mt-3 flex flex-wrap items-center gap-2">
+            {payments.map((p) => (
+              <span
+                key={p}
+                className="rounded-full border border-line bg-cream px-3 py-1.5 text-xs font-semibold text-ink-soft"
+              >
+                {p}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col items-start justify-between gap-4 border-t border-line pt-6 text-sm text-ink-soft sm:flex-row sm:items-center">
           <span className="inline-flex items-center gap-1.5">
             <MapPin size={16} weight="fill" className="text-leaf" />
             Rosario, Santa Fe
