@@ -1,6 +1,7 @@
 const links = [
   { href: '#categorias', label: 'Categorías' },
   { href: '#catalogo', label: 'Catálogo' },
+  { href: '#peluqueria', label: 'Peluquería' },
   { href: '#beneficios', label: 'Beneficios' },
 ]
 
