@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
+import { Link } from 'react-router-dom'
 import { ArrowRight, ChatCircleDots, Storefront } from '../icons'
 
 export default function Hero() {
@@ -50,8 +51,8 @@ export default function Hero() {
           </motion.p>
 
           <motion.div {...rise(0.24)} className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="#catalogo"
+            <Link
+              to="/catalogo"
               className="group inline-flex cursor-pointer items-center gap-2 rounded-full bg-leaf px-6 py-3.5 text-base font-semibold text-white shadow-sm transition-all duration-200 hover:bg-leaf-deep active:translate-y-px"
             >
               Ver catálogo
@@ -60,7 +61,7 @@ export default function Hero() {
                 weight="bold"
                 className="transition-transform duration-200 group-hover:translate-x-0.5"
               />
-            </a>
+            </Link>
             <a
               href="#beneficios"
               className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-line bg-surface px-6 py-3.5 text-base font-semibold text-ink transition-colors duration-200 hover:border-leaf hover:text-leaf"
