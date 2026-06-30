@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, ChatCircleDots, Storefront } from '../icons'
+import heroPerro from '../assets/hero-perro.jpg'
 
 export default function Hero() {
   const reduce = useReducedMotion()
@@ -73,12 +74,13 @@ export default function Hero() {
         >
           <div className="relative overflow-hidden rounded-[2rem] border border-line bg-cream-deep shadow-[0_30px_60px_-30px_rgba(36,95,71,0.45)]">
             <img
-              src="https://loremflickr.com/900/1040/dog,happy?lock=70"
-              alt="Perro feliz junto a sus accesorios"
-              width={900}
-              height={1040}
+              src={heroPerro}
+              alt="Perro feliz sentado en el pasto rodeado de juguetes"
+              width={1200}
+              height={900}
               className="h-full w-full object-cover"
               loading="eager"
+              fetchPriority="high"
             />
           </div>
           {/* single floating info card on the asset */}
