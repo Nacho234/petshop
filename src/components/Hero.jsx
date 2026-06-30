@@ -89,8 +89,8 @@ export default function Hero() {
               <Storefront weight="fill" size={20} />
             </span>
             <span className="text-sm leading-tight">
-              <span className="block font-bold text-ink">Retiro en local</span>
-              <span className="text-ink-soft">o envío a domicilio</span>
+              <span className="block font-bold text-ink">Avellaneda 1796 · Rosario</span>
+              <span className="text-ink-soft">Lun a Sáb · 9 a 19:30 hs</span>
             </span>
           </div>
         </motion.div>
