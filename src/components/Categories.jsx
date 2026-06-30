@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { ArrowUpRight } from '@phosphor-icons/react'
+import { ArrowUpRight } from '../icons'
 import { categories } from '../data'
 import Reveal from './Reveal'
 

@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'motion/react'
-import { ArrowRight, ChatCircleDots, Storefront } from '@phosphor-icons/react'
+import { ArrowRight, ChatCircleDots, Storefront } from '../icons'
 
 export default function Hero() {
   const reduce = useReducedMotion()

@@ -1,4 +1,4 @@
-import { Truck, ChatTeardropText, ShieldCheck, PawPrint } from '@phosphor-icons/react'
+import { Truck, ChatTeardropText, ShieldCheck, PawPrint } from '../icons'
 import Reveal from './Reveal'
 
 const items = [

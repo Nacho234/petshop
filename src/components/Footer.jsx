@@ -1,4 +1,4 @@
-import { PawPrint, WhatsappLogo, InstagramLogo, MapPin } from '@phosphor-icons/react'
+import { PawPrint, WhatsappLogo, InstagramLogo, MapPin } from '../icons'
 
 const cols = [
   {

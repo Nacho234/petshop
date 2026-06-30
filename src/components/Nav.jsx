@@ -1,4 +1,4 @@
-import { PawPrint } from '@phosphor-icons/react'
+import { PawPrint } from '../icons'
 
 const links = [
   { href: '#categorias', label: 'Categorías' },

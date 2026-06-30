@@ -1,4 +1,4 @@
-import { ArrowRight } from '@phosphor-icons/react'
+import { ArrowRight } from '../icons'
 import Reveal from './Reveal'
 
 export default function CTA() {

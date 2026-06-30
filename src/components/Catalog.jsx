@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { Heart, PawPrint } from '@phosphor-icons/react'
+import { Heart, PawPrint } from '../icons'
 import { products, categories, fmtPrice } from '../data'
 
 const filters = [{ id: 'todos', label: 'Todos' }, ...categories.map((c) => ({ id: c.id, label: c.label }))]
