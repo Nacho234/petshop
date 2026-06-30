@@ -25,13 +25,13 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer id="contacto" className="border-t border-line bg-surface">
+    <footer id="contacto" className="border-t border-line bg-white">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
           {/* brand */}
           <div className="md:col-span-2 lg:col-span-5">
             <Link to="/" className="flex items-center gap-2.5" aria-label="Zafari · inicio">
-              <img src="/logo-zafari.png" alt="Zafari" width={160} height={160} className="h-14 w-auto mix-blend-multiply" />
+              <img src="/logo-zafari.png" alt="Zafari" width={160} height={160} className="h-14 w-auto" />
             </Link>
             <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-ink-soft">
               Aventura para tus mascotas. Alimento balanceado, accesorios y juguetes, con

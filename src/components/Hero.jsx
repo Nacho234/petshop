@@ -1,6 +1,6 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChatCircleDots, Storefront } from '../icons'
+import { ArrowRight, ChatCircleDots } from '../icons'
 
 export default function Hero() {
   const reduce = useReducedMotion()
@@ -11,20 +11,34 @@ export default function Hero() {
   })
 
   return (
-    <section id="top" className="bg-cream">
-      <div className="relative mx-auto max-w-7xl">
-        {/* imagen completa, a todo el ancho (sin recortar) */}
+    <section
+      id="top"
+      className="relative flex min-h-[100dvh] items-start overflow-hidden bg-white md:items-center"
+    >
+      {/* imagen de fondo a pantalla completa: vertical en mobile, ancha en desktop */}
+      <picture>
+        <source media="(min-width: 768px)" srcSet="/hero-bg.jpg" />
         <img
-          src="/hero-bg.jpg"
+          src="/hero-mobile.jpg"
           alt="Perro con sus juguetes en el pasto"
-          className="block h-auto w-full"
+          className="absolute inset-0 h-full w-full object-cover object-bottom md:object-right"
           loading="eager"
           fetchPriority="high"
         />
+      </picture>
+      {/* velo desktop: a la izquierda, para que el texto se lea sin opacar al perro */}
+      <div
+        aria-hidden
+        className="absolute inset-0 hidden bg-gradient-to-r from-white from-15% via-white/70 via-35% to-transparent to-55% md:block lg:to-50%"
+      />
+      {/* velo mobile: arriba, donde va el texto */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-white from-25% via-white/70 to-transparent to-55% md:hidden"
+      />
 
-        {/* contenido: debajo de la imagen en mobile, superpuesto en desktop */}
-        <div className="px-4 pb-12 pt-8 sm:px-6 lg:absolute lg:inset-0 lg:flex lg:items-center lg:px-10 lg:py-0">
-          <div className="max-w-xl lg:max-w-[48%]">
+      <div className="relative mx-auto w-full max-w-7xl px-4 pb-20 pt-20 sm:px-6 md:py-20 lg:px-10">
+        <div className="max-w-xl">
           <motion.span
             {...rise(0)}
             className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-leaf"
@@ -70,21 +84,6 @@ export default function Hero() {
               Cómo comprar
             </a>
           </motion.div>
-
-          {/* local info */}
-          <motion.div
-            {...rise(0.32)}
-            className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-line bg-surface/95 px-4 py-3 shadow-sm backdrop-blur-sm"
-          >
-            <span className="grid h-10 w-10 place-items-center rounded-xl bg-leaf-soft text-leaf-deep">
-              <Storefront weight="fill" size={20} />
-            </span>
-            <span className="text-sm leading-tight">
-              <span className="block font-bold text-ink">Avellaneda 1796 · Rosario</span>
-              <span className="text-ink-soft">Lun a Sáb · 9 a 19:30 hs</span>
-            </span>
-          </motion.div>
-          </div>
         </div>
       </div>
     </section>

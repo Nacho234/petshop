@@ -11,7 +11,7 @@ const links = [
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line/70 bg-cream/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-white/40 bg-zinc-200/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-xl backdrop-saturate-150">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
         <Link to="/" className="flex items-center" aria-label="Zafari · inicio">
           <img
@@ -19,7 +19,7 @@ export default function Nav() {
             alt="Zafari"
             width={160}
             height={160}
-            className="h-14 w-auto mix-blend-multiply"
+            className="h-14 w-auto"
           />
         </Link>
 
