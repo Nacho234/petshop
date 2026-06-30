@@ -2,20 +2,18 @@ import { WhatsappLogo, InstagramLogo, MapPin, Clock } from '../icons'
 
 const cols = [
   {
-    title: 'Tienda',
+    title: 'Categorías',
     links: [
-      { label: 'Perros', href: '#catalogo' },
-      { label: 'Gatos', href: '#catalogo' },
-      { label: 'Aves', href: '#catalogo' },
-      { label: 'Peces', href: '#catalogo' },
+      { label: 'Alimento balanceado', href: '#catalogo' },
+      { label: 'Accesorios de mascotas', href: '#catalogo' },
+      { label: 'Juguetes de entretenimiento', href: '#catalogo' },
     ],
   },
   {
-    title: 'Ayuda',
+    title: 'Teléfonos',
     links: [
-      { label: 'Cómo comprar', href: '#beneficios' },
-      { label: 'Envíos', href: '#beneficios' },
-      { label: 'Medios de pago', href: '#beneficios' },
+      { label: 'Mayorista: (3413) 787052', href: 'tel:+543413787052' },
+      { label: 'Minorista: (341) 7544204', href: 'tel:+543417544204' },
     ],
   },
 ]
@@ -31,8 +29,8 @@ export default function Footer() {
               <img src="/logo-zafari.png" alt="Zafari" width={160} height={160} className="h-14 w-auto mix-blend-multiply" />
             </a>
             <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-ink-soft">
-              Aventura para tus mascotas. Todo para perros, gatos, aves y peces, con asesoramiento
-              real y envíos a domicilio.
+              Aventura para tus mascotas. Alimento balanceado, accesorios y juguetes, con
+              asesoramiento real y envíos en todo Rosario.
             </p>
 
             {/* horarios + dirección */}

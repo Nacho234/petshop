@@ -5,6 +5,11 @@ import { products, categories, fmtPrice } from '../data'
 
 const filters = [{ id: 'todos', label: 'Todos' }, ...categories.map((c) => ({ id: c.id, label: c.label }))]
 
+// Devuelve la categoría activa, ya sea que `active` sea su id o el de una de sus subcategorías.
+function findActiveCategory(active) {
+  return categories.find((c) => c.id === active || c.subs?.some((s) => s.id === active))
+}
+
 function ProductCard({ p, reduce }) {
   const [fav, setFav] = useState(false)
   return (
@@ -63,9 +68,18 @@ function ProductCard({ p, reduce }) {
 export default function Catalog({ active, setActive }) {
   const reduce = useReducedMotion()
   const shown = useMemo(
-    () => (active === 'todos' ? products : products.filter((p) => p.cat === active)),
+    () =>
+      active === 'todos'
+        ? products
+        : products.filter((p) => p.cat === active || p.sub === active),
     [active],
   )
+
+  // Subcategorías a mostrar: las de la categoría activa (si tiene).
+  const activeCat = findActiveCategory(active)
+  const subFilters = activeCat?.subs?.length
+    ? [{ id: activeCat.id, label: 'Todas' }, ...activeCat.subs]
+    : []
 
   return (
     <section id="catalogo" className="scroll-mt-20 bg-cream-deep/60 py-20 lg:py-28">
@@ -102,6 +116,30 @@ export default function Catalog({ active, setActive }) {
             })}
           </div>
         </div>
+
+        {/* segunda fila: subcategorías de la categoría activa */}
+        {subFilters.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-2" role="tablist" aria-label="Filtrar por subcategoría">
+            {subFilters.map((sub) => {
+              const on = active === sub.id
+              return (
+                <button
+                  key={sub.id}
+                  role="tab"
+                  aria-selected={on}
+                  onClick={() => setActive(sub.id)}
+                  className={`cursor-pointer rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 active:translate-y-px ${
+                    on
+                      ? 'bg-leaf-soft text-leaf-deep ring-1 ring-leaf'
+                      : 'border border-line bg-surface text-ink-soft hover:border-leaf hover:text-leaf'
+                  }`}
+                >
+                  {sub.label}
+                </button>
+              )
+            })}
+          </div>
+        )}
 
         <motion.div
           layout={!reduce}

@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <div className="min-h-[100dvh] bg-cream">
-      <Nav />
+      <Nav onPick={setActive} />
       <main>
         <Hero />
         <Brands />

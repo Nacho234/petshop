@@ -1,35 +1,67 @@
 // Catálogo de muestra para la vidriera. Datos representativos (precios ARS).
 // Imágenes vía LoremFlickr con keywords reales por producto (estables con lock).
 
-export const categories = [
-  { id: 'perros', label: 'Perros', blurb: 'Alimento, snacks y juguetes', img: 'dog,puppy', count: 128 },
-  { id: 'gatos', label: 'Gatos', blurb: 'Comida, piedras y rascadores', img: 'cat,kitten', count: 94 },
-  { id: 'aves', label: 'Aves', blurb: 'Semillas, jaulas y accesorios', img: 'parrot,bird', count: 41 },
-  { id: 'peces', label: 'Peces', blurb: 'Acuarios, filtros y alimento', img: 'aquarium,fish', count: 37 },
-]
-
 const f = (kw, lock) => `https://loremflickr.com/600/600/${kw}?lock=${lock}`
 
+// 3 categorías de producto. Cada una puede tener subcategorías (para el catálogo).
+export const categories = [
+  {
+    id: 'alimento',
+    label: 'Alimento balanceado',
+    blurb: 'Para perros y gatos, todas las marcas',
+    img: f('dogfood,petfood', 101),
+    count: 86,
+    subs: [
+      { id: 'alimento-minorista', label: 'Minorista' },
+      { id: 'alimento-mayorista', label: 'Mayorista' },
+    ],
+  },
+  {
+    id: 'accesorios',
+    label: 'Accesorios de mascotas',
+    blurb: 'Collares, correas y cosmética',
+    img: f('dog,collar,leash', 102),
+    count: 64,
+    subs: [
+      { id: 'accesorios-collares', label: 'Collares' },
+      { id: 'accesorios-correas', label: 'Correas' },
+      { id: 'accesorios-cosmetica', label: 'Cosmética mascota' },
+    ],
+  },
+  {
+    id: 'juguetes',
+    label: 'Juguetes de entretenimiento',
+    blurb: 'Para que no paren de jugar',
+    img: f('dog,toy,ball', 103),
+    count: 39,
+    subs: [],
+  },
+]
+
 export const products = [
-  { id: 1, name: 'Balanceado Adultos Razas Medianas 15kg', brand: 'Old Prince', cat: 'perros', price: 38900, tag: 'Más vendido', img: f('dogfood,kibble', 11) },
-  { id: 2, name: 'Snacks Dentales Mix x30', brand: 'Vitalcan', cat: 'perros', price: 6450, img: f('dog,treats', 12) },
-  { id: 3, name: 'Pelota de Caucho Resistente', brand: 'Kong', cat: 'perros', price: 8990, tag: 'Nuevo', img: f('dog,toy,ball', 13) },
-  { id: 4, name: 'Cama Acolchada Talle L', brand: 'PetComfort', cat: 'perros', price: 27400, img: f('dog,bed', 14) },
+  // Alimento balanceado — Minorista
+  { id: 1, name: 'Balanceado Perro Adulto 15kg', brand: 'Old Prince', cat: 'alimento', sub: 'alimento-minorista', price: 38900, tag: 'Más vendido', img: f('dogfood,kibble', 11) },
+  { id: 2, name: 'Balanceado Gato Adulto 7.5kg', brand: 'Royal Canin', cat: 'alimento', sub: 'alimento-minorista', price: 41200, img: f('catfood', 12) },
+  { id: 3, name: 'Balanceado Cachorro 3kg', brand: 'Pro Plan', cat: 'alimento', sub: 'alimento-minorista', price: 18900, img: f('puppy,food', 13) },
+  // Alimento balanceado — Mayorista
+  { id: 4, name: 'Pallet Balanceado Adulto x12 (15kg)', brand: 'Dog Chow', cat: 'alimento', sub: 'alimento-mayorista', price: 410000, tag: 'Por mayor', img: f('dogfood,sacks', 14) },
+  { id: 5, name: 'Caja Alimento Gato x10 (7.5kg)', brand: 'Excellent', cat: 'alimento', sub: 'alimento-mayorista', price: 360000, tag: 'Por mayor', img: f('catfood,boxes', 15) },
 
-  { id: 5, name: 'Alimento Gatos Esterilizados 7.5kg', brand: 'Royal Canin', cat: 'gatos', price: 41200, tag: 'Más vendido', img: f('catfood', 21) },
-  { id: 6, name: 'Piedras Sanitarias Aglutinantes 10kg', brand: 'Catit', cat: 'gatos', price: 9870, img: f('cat,litter', 22) },
-  { id: 7, name: 'Rascador Torre con Cuevas', brand: 'FelizGato', cat: 'gatos', price: 33500, tag: 'Nuevo', img: f('cat,scratcher', 23) },
-  { id: 8, name: 'Ratón de Juguete con Catnip x3', brand: 'PlayCat', cat: 'gatos', price: 4290, img: f('cat,toy', 24) },
+  // Accesorios — Collares
+  { id: 6, name: 'Collar Regulable de Nylon', brand: 'PetComfort', cat: 'accesorios', sub: 'accesorios-collares', price: 6800, img: f('dog,collar', 21) },
+  { id: 7, name: 'Collar Antipulgas', brand: 'Kong', cat: 'accesorios', sub: 'accesorios-collares', price: 9200, tag: 'Nuevo', img: f('pet,collar', 22) },
+  // Accesorios — Correas
+  { id: 8, name: 'Correa Retráctil 5m', brand: 'PetComfort', cat: 'accesorios', sub: 'accesorios-correas', price: 12400, img: f('dog,leash', 23) },
+  { id: 9, name: 'Correa de Cuero Reforzada', brand: 'Kong', cat: 'accesorios', sub: 'accesorios-correas', price: 15900, img: f('leash,dog', 24) },
+  // Accesorios — Cosmética mascota
+  { id: 10, name: 'Shampoo Hipoalergénico 500ml', brand: 'Vitalcan', cat: 'accesorios', sub: 'accesorios-cosmetica', price: 7300, img: f('pet,shampoo', 25) },
+  { id: 11, name: 'Perfume para Mascotas 120ml', brand: 'Excellent', cat: 'accesorios', sub: 'accesorios-cosmetica', price: 5400, img: f('dog,grooming', 26) },
 
-  { id: 9, name: 'Mezcla de Semillas Premium 1kg', brand: 'Vitakraft', cat: 'aves', price: 5650, img: f('bird,seeds', 31) },
-  { id: 10, name: 'Jaula Vuelo con Comederos', brand: 'AviHome', cat: 'aves', price: 48700, tag: 'Más vendido', img: f('birdcage', 32) },
-  { id: 11, name: 'Bloque de Calcio y Minerales', brand: 'Vitakraft', cat: 'aves', price: 2380, img: f('parrot,cage', 33) },
-  { id: 12, name: 'Bebedero Antigoteo 250ml', brand: 'AviHome', cat: 'aves', price: 3120, img: f('bird,feeder', 34) },
-
-  { id: 13, name: 'Acuario Kit Completo 54L', brand: 'AquaLux', cat: 'peces', price: 86400, tag: 'Más vendido', img: f('aquarium,tank', 41) },
-  { id: 14, name: 'Filtro Externo 800 L/h', brand: 'Sera', cat: 'peces', price: 52300, img: f('aquarium,filter', 42) },
-  { id: 15, name: 'Alimento Escamas Tropicales 250g', brand: 'Tetra', cat: 'peces', price: 7480, tag: 'Nuevo', img: f('fish,food', 43) },
-  { id: 16, name: 'Termocalentador Sumergible 100W', brand: 'AquaLux', cat: 'peces', price: 18900, img: f('aquarium,fish', 44) },
+  // Juguetes de entretenimiento
+  { id: 12, name: 'Pelota de Caucho Resistente', brand: 'Kong', cat: 'juguetes', sub: null, price: 8990, tag: 'Más vendido', img: f('dog,toy,ball', 31) },
+  { id: 13, name: 'Soga Mordedor Trenzada', brand: 'PlayPet', cat: 'juguetes', sub: null, price: 4990, img: f('dog,rope,toy', 32) },
+  { id: 14, name: 'Ratón con Catnip x3', brand: 'PlayCat', cat: 'juguetes', sub: null, price: 4290, img: f('cat,toy', 33) },
+  { id: 15, name: 'Hueso de Juguete Sonoro', brand: 'PlayPet', cat: 'juguetes', sub: null, price: 3990, tag: 'Nuevo', img: f('dog,toy', 34) },
 ]
 
 // ── Peluquería canina ──────────────────────────────────────────────

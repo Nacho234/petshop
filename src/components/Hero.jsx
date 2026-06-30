@@ -35,8 +35,8 @@ export default function Hero() {
             {...rise(0.16)}
             className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-soft"
           >
-            Alimento, juguetes y accesorios para perros, gatos, aves y peces.
-            Envíos a todo el país.
+            Alimento balanceado, accesorios y juguetes para tu mascota.
+            Envíos en todo Rosario.
           </motion.p>
 
           <motion.div {...rise(0.24)} className="mt-8 flex flex-wrap items-center gap-3">
