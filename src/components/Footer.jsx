@@ -1,4 +1,4 @@
-import { PawPrint, WhatsappLogo, InstagramLogo, MapPin } from '../icons'
+import { WhatsappLogo, InstagramLogo, MapPin, Clock } from '../icons'
 
 const cols = [
   {
@@ -27,27 +27,43 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* brand */}
           <div className="lg:col-span-2">
-            <a href="#top" className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-leaf text-white">
-                <PawPrint weight="fill" size={20} />
-              </span>
-              <span className="font-display text-xl font-bold tracking-tight text-ink">Webnico</span>
+            <a href="#top" className="flex items-center gap-2.5" aria-label="Zafari · inicio">
+              <img src="/logo-zafari.png" alt="Zafari" width={132} height={56} className="h-11 w-auto" />
             </a>
             <p className="mt-4 max-w-[42ch] text-sm leading-relaxed text-ink-soft">
-              Petshop online con todo para perros, gatos, aves y peces. Asesoramiento real y envíos
-              a todo el país.
+              Aventura para tus mascotas. Todo para perros, gatos, aves y peces, con asesoramiento
+              real y envíos a domicilio.
             </p>
+
+            {/* horarios + dirección */}
+            <ul className="mt-5 space-y-2.5 text-sm text-ink-soft">
+              <li className="flex items-start gap-2">
+                <Clock size={18} weight="fill" className="mt-0.5 shrink-0 text-leaf" />
+                <span>
+                  <span className="font-semibold text-ink">Lunes a Sábados</span> · 9 a 19:30 hs
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin size={18} weight="fill" className="mt-0.5 shrink-0 text-leaf" />
+                <span>Avellaneda 1796 · Rosario, Santa Fe</span>
+              </li>
+            </ul>
+
             <div className="mt-5 flex items-center gap-3">
               <a
-                href="https://wa.me/5493410000000"
+                href="https://wa.me/5493417544204"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-leaf px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-leaf-deep"
               >
                 <WhatsappLogo size={18} weight="fill" />
                 Escribinos
               </a>
               <a
-                href="https://instagram.com"
-                aria-label="Instagram de Webnico"
+                href="https://instagram.com/zafari.petshop"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram de Zafari"
                 className="grid h-10 w-10 cursor-pointer place-items-center rounded-full border border-line text-ink-soft transition-colors duration-200 hover:border-leaf hover:text-leaf"
               >
                 <InstagramLogo size={20} />
@@ -81,7 +97,7 @@ export default function Footer() {
             <MapPin size={16} weight="fill" className="text-leaf" />
             Rosario, Santa Fe
           </span>
-          <span>© {new Date().getFullYear()} Webnico. Todos los derechos reservados.</span>
+          <span>© {new Date().getFullYear()} Zafari. Todos los derechos reservados.</span>
         </div>
       </div>
     </footer>
