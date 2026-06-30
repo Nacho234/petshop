@@ -32,5 +32,40 @@ export const products = [
   { id: 16, name: 'Termocalentador Sumergible 100W', brand: 'AquaLux', cat: 'peces', price: 18900, img: f('aquarium,fish', 44) },
 ]
 
+// ── Peluquería canina ──────────────────────────────────────────────
+// Tamaños de perro. El precio de cada nivel varía según el tamaño.
+export const groomingSizes = [
+  { id: 'chico', label: 'Perro chico', hint: 'hasta 10 kg' },
+  { id: 'mediano', label: 'Perro mediano', hint: '10 a 25 kg' },
+  { id: 'grande', label: 'Perro grande', hint: 'más de 25 kg' },
+]
+
+// 3 niveles de servicio. `prices` tiene un valor por tamaño (en ARS).
+// 👉 Para actualizar: cambiá los números de `prices` y el texto de `features`.
+export const groomingTiers = [
+  {
+    id: 'bronce',
+    name: 'Bronce',
+    blurb: 'El baño esencial, prolijo y a tiempo.',
+    features: ['Baño con shampoo neutro', 'Secado y cepillado', 'Corte de uñas', 'Perfume y moño'],
+    prices: { chico: 8000, mediano: 11000, grande: 15000 },
+  },
+  {
+    id: 'plata',
+    name: 'Plata',
+    blurb: 'Baño completo más corte y cuidado de oídos.',
+    features: ['Todo lo del nivel Bronce', 'Corte de pelo a medida', 'Limpieza de oídos', 'Glándulas anales'],
+    prices: { chico: 12000, mediano: 16000, grande: 21000 },
+    featured: true, // se muestra destacado ("Más elegido")
+  },
+  {
+    id: 'oro',
+    name: 'Oro',
+    blurb: 'La experiencia premium de cuidado integral.',
+    features: ['Todo lo del nivel Plata', 'Tratamiento hidratante', 'Cepillado dental', 'Deslanado premium'],
+    prices: { chico: 16000, mediano: 21000, grande: 28000 },
+  },
+]
+
 export const fmtPrice = (n) =>
   new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(n)
