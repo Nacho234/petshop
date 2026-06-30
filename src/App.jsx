@@ -5,6 +5,7 @@ import Categories from './components/Categories'
 import Catalog from './components/Catalog'
 import Grooming from './components/Grooming'
 import Benefits from './components/Benefits'
+import Wholesale from './components/Wholesale'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -21,6 +22,7 @@ export default function App() {
         <Catalog active={active} setActive={setActive} />
         <Grooming />
         <Benefits />
+        <Wholesale />
         <CTA />
       </main>
       <Footer />

@@ -37,7 +37,8 @@ export const products = [
 export const groomingSizes = [
   { id: 'chico', label: 'Perro chico', hint: 'hasta 10 kg' },
   { id: 'mediano', label: 'Perro mediano', hint: '10 a 25 kg' },
-  { id: 'grande', label: 'Perro grande', hint: 'más de 25 kg' },
+  { id: 'grande', label: 'Perro grande', hint: '25 a 45 kg' },
+  { id: 'gigante', label: 'Perro gigante', hint: 'más de 45 kg' },
 ]
 
 // 3 niveles de servicio. `prices` tiene un valor por tamaño (en ARS).
@@ -48,14 +49,14 @@ export const groomingTiers = [
     name: 'Bronce',
     blurb: 'El baño esencial, prolijo y a tiempo.',
     features: ['Baño con shampoo neutro', 'Secado y cepillado', 'Corte de uñas', 'Perfume y moño'],
-    prices: { chico: 8000, mediano: 11000, grande: 15000 },
+    prices: { chico: 40000, mediano: 45000, grande: 59000, gigante: 67000 },
   },
   {
     id: 'plata',
     name: 'Plata',
     blurb: 'Baño completo más corte y cuidado de oídos.',
     features: ['Todo lo del nivel Bronce', 'Corte de pelo a medida', 'Limpieza de oídos', 'Glándulas anales'],
-    prices: { chico: 12000, mediano: 16000, grande: 21000 },
+    prices: { chico: 55000, mediano: 63000, grande: 80000, gigante: 92000 },
     featured: true, // se muestra destacado ("Más elegido")
   },
   {
@@ -63,7 +64,7 @@ export const groomingTiers = [
     name: 'Oro',
     blurb: 'La experiencia premium de cuidado integral.',
     features: ['Todo lo del nivel Plata', 'Tratamiento hidratante', 'Cepillado dental', 'Deslanado premium'],
-    prices: { chico: 16000, mediano: 21000, grande: 28000 },
+    prices: { chico: 69000, mediano: 79000, grande: 100000, gigante: 115000 },
   },
 ]
 
