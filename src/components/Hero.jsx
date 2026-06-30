@@ -10,10 +10,25 @@ export default function Hero() {
   })
 
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-14 sm:px-6 md:gap-8 lg:grid-cols-12 lg:pb-24 lg:pt-20">
-        {/* Copy */}
-        <div className="lg:col-span-5">
+    <section id="top" className="relative overflow-hidden bg-cream">
+      {/* background image */}
+      <img
+        src="/hero-bg.jpg"
+        alt="Perro con sus juguetes en el pasto"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-right"
+        loading="eager"
+        fetchPriority="high"
+      />
+      {/* cream wash for text legibility on the left */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-r from-cream from-30% via-cream/85 to-transparent lg:via-cream/60"
+      />
+      {/* soft bottom fade into the page */}
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-cream to-transparent" />
+
+      <div className="relative mx-auto flex min-h-[32rem] max-w-7xl items-center px-4 py-16 sm:px-6 lg:min-h-[42rem]">
+        <div className="max-w-xl">
           <motion.span
             {...rise(0)}
             className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-leaf"
@@ -33,7 +48,7 @@ export default function Hero() {
 
           <motion.p
             {...rise(0.16)}
-            className="mt-5 max-w-[46ch] text-lg leading-relaxed text-ink-soft"
+            className="mt-5 max-w-[44ch] text-lg leading-relaxed text-ink-soft"
           >
             Alimento balanceado, accesorios y juguetes para tu mascota.
             Envíos en todo Rosario.
@@ -59,26 +74,12 @@ export default function Hero() {
               Cómo comprar
             </a>
           </motion.div>
-        </div>
 
-        {/* Asset */}
-        <motion.div
-          {...rise(0.18)}
-          className="relative lg:col-span-7"
-        >
-          <div className="relative">
-            <img
-              src="/hero-mascotas.jpg"
-              alt="Un perro y un gato, las mascotas de Zafari"
-              width={1280}
-              height={1040}
-              className="w-full rounded-[2rem] object-cover"
-              loading="eager"
-              fetchPriority="high"
-            />
-          </div>
-          {/* single floating info card on the asset */}
-          <div className="absolute -bottom-5 left-5 flex items-center gap-3 rounded-2xl border border-line bg-surface/95 px-4 py-3 shadow-lg backdrop-blur-sm sm:left-8">
+          {/* local info */}
+          <motion.div
+            {...rise(0.32)}
+            className="mt-8 inline-flex items-center gap-3 rounded-2xl border border-line bg-surface/95 px-4 py-3 shadow-sm backdrop-blur-sm"
+          >
             <span className="grid h-10 w-10 place-items-center rounded-xl bg-leaf-soft text-leaf-deep">
               <Storefront weight="fill" size={20} />
             </span>
@@ -86,8 +87,8 @@ export default function Hero() {
               <span className="block font-bold text-ink">Avellaneda 1796 · Rosario</span>
               <span className="text-ink-soft">Lun a Sáb · 9 a 19:30 hs</span>
             </span>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
