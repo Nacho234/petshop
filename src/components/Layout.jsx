@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Nav from './Nav'
 import Footer from './Footer'
 import Cart from './Cart'
+import WhatsAppFab from './WhatsAppFab'
 
 // Al cambiar de ruta sube al inicio; si hay hash (#seccion), scrollea ahí.
 function ScrollManager() {
@@ -30,6 +31,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <WhatsAppFab />
     </div>
   )
 }

@@ -1,5 +1,3 @@
-import { useReducedMotion } from 'motion/react'
-
 // Marcas de alimento que trabajamos (texto estilizado, sin logos por ahora).
 const brands = [
   'Royal Canin',
@@ -28,35 +26,26 @@ function BrandName({ children, ariaHidden }) {
 }
 
 export default function Brands() {
-  const reduce = useReducedMotion()
-
   return (
     <section aria-label="Marcas de alimento que trabajamos" className="border-y border-line bg-white py-8">
-      {reduce ? (
-        // Reduced-motion: lista estática centrada, sin desplazamiento.
-        <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-4 px-4">
-          {brands.map((b) => (
-            <BrandName key={b}>{b}</BrandName>
+      {/* Marquee infinito: dos copias de la lista, se pausa al pasar el mouse.
+          Si el sistema pide reducir movimiento, el CSS lo hace mucho más lento
+          (no lo detiene), así se ve en todas las máquinas. */}
+      <div
+        className="group relative overflow-hidden"
+        style={{
+          maskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)',
+          WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)',
+        }}
+      >
+        <div className="flex w-max animate-marquee items-center gap-12 group-hover:[animation-play-state:paused]">
+          {[...brands, ...brands].map((b, i) => (
+            <BrandName key={i} ariaHidden={i >= brands.length}>
+              {b}
+            </BrandName>
           ))}
         </div>
-      ) : (
-        // Marquee infinito: dos copias de la lista, se pausa al pasar el mouse.
-        <div
-          className="group relative overflow-hidden"
-          style={{
-            maskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)',
-            WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)',
-          }}
-        >
-          <div className="flex w-max animate-marquee items-center gap-12 group-hover:[animation-play-state:paused]">
-            {[...brands, ...brands].map((b, i) => (
-              <BrandName key={i} ariaHidden={i >= brands.length}>
-                {b}
-              </BrandName>
-            ))}
-          </div>
-        </div>
-      )}
+      </div>
     </section>
   )
 }

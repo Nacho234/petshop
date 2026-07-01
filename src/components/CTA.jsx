@@ -1,4 +1,3 @@
-import { useReducedMotion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from '../icons'
 import Reveal from './Reveal'
@@ -6,32 +5,22 @@ import ctaVideo from '../assets/cta-video.mp4'
 import ctaPoster from '../assets/cta-poster.jpg'
 
 export default function CTA() {
-  const reduce = useReducedMotion()
-
   return (
     <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:pb-28">
       <Reveal>
         <div className="relative flex min-h-[440px] items-center justify-center overflow-hidden rounded-[2rem] bg-leaf px-6 py-16 text-center sm:px-12 lg:min-h-[520px] lg:py-24">
-          {/* Background: looping video, or a static poster under reduced-motion. */}
-          {reduce ? (
-            <img
-              src={ctaPoster}
-              alt=""
-              aria-hidden
-              className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-            />
-          ) : (
-            <video
-              className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-              src={ctaVideo}
-              poster={ctaPoster}
-              autoPlay
-              loop
-              muted
-              playsInline
-              aria-hidden
-            />
-          )}
+          {/* Background: looping video. El poster (imagen fija) se muestra
+              mientras carga o si el navegador no puede reproducirlo. */}
+          <video
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+            src={ctaVideo}
+            poster={ctaPoster}
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden
+          />
 
           {/* Green scrim so the headline and button stay readable over any frame. */}
           <div aria-hidden className="absolute inset-0 bg-leaf-deep/75" />

@@ -86,18 +86,9 @@ export default function Catalog({ active, setActive }) {
     : []
 
   return (
-    <section id="catalogo" className="scroll-mt-20 bg-white py-20 lg:py-28">
+    <section id="catalogo" className="scroll-mt-20 bg-white pb-20 pt-12 lg:pb-28 lg:pt-14">
       <div className="mx-auto max-w-[100rem] px-4 sm:px-6 lg:px-10">
-        <div className="max-w-[50ch]">
-          <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Catálogo
-          </h2>
-          <p className="mt-3 text-ink-soft">
-            Una selección de lo que tenemos en góndola. Precios actualizados al día.
-          </p>
-        </div>
-
-        <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
           {/* sidebar de filtros */}
           <aside className="lg:w-64 lg:shrink-0">
             <div className="rounded-card border border-line bg-white p-5 shadow-sm lg:sticky lg:top-24">
