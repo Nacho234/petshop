@@ -40,7 +40,7 @@ export default function Benefits() {
 
         {/* WhatsApp: card ancha */}
         <Reveal delay={0.06} className="sm:col-span-2 lg:col-span-2">
-          <article className="flex h-full min-h-[160px] flex-col justify-between rounded-[1.5rem] border border-line bg-surface p-6">
+          <article className="flex h-full min-h-[160px] flex-col justify-between rounded-[1.5rem] border border-line bg-white p-6">
             <span className="grid h-11 w-11 place-items-center rounded-2xl bg-leaf-soft text-leaf-deep">
               <ChatTeardropText size={22} weight="duotone" />
             </span>
