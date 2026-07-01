@@ -1,10 +1,10 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { CaretDown, ShoppingCartSimple } from '../icons'
+import { CaretDown, List, ShoppingCartSimple, X } from '../icons'
 import { categories } from '../data'
 import { useCart } from '../cart/cartStore'
 
 const links = [
-  { to: '/catalogo', label: 'Catálogo' },
   { to: '/peluqueria', label: 'Peluquería' },
   { to: '/#mayorista', label: 'Por mayor' },
   { to: '/#ubicacion', label: 'Ubicación' },
@@ -12,6 +12,9 @@ const links = [
 
 export default function Nav() {
   const { totalItems, setOpen } = useCart()
+  const [menuOpen, setMenuOpen] = useState(false)
+  const closeMenu = () => setMenuOpen(false)
+
   return (
     <header className="sticky top-0 z-40 border-b border-white/40 bg-zinc-200/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-xl backdrop-saturate-150">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
@@ -28,8 +31,8 @@ export default function Nav() {
         <nav className="hidden items-center gap-8 md:flex">
           {/* Categorías: menú desplegable */}
           <div className="group relative">
-            <button
-              type="button"
+            <Link
+              to="/catalogo"
               className="flex items-center gap-1 text-sm font-medium text-ink-soft transition-colors duration-200 hover:text-leaf group-hover:text-leaf"
             >
               Categorías
@@ -38,7 +41,7 @@ export default function Nav() {
                 weight="bold"
                 className="transition-transform duration-200 group-hover:rotate-180"
               />
-            </button>
+            </Link>
 
             <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
               <div className="rounded-2xl border border-line bg-white p-2 shadow-lg">
@@ -95,14 +98,62 @@ export default function Nav() {
             )}
           </button>
 
-          <Link
-            to="/catalogo"
-            className="hidden cursor-pointer rounded-full bg-leaf px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-leaf-deep active:translate-y-px sm:block"
+          {/* Botón hamburguesa (solo mobile) */}
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={menuOpen}
+            className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-line bg-white text-ink transition-colors duration-200 hover:border-leaf hover:text-leaf md:hidden"
           >
-            Ver catálogo
-          </Link>
+            {menuOpen ? <X size={20} weight="bold" /> : <List size={20} weight="bold" />}
+          </button>
         </div>
       </div>
+
+      {/* Menú mobile desplegable */}
+      {menuOpen && (
+        <nav className="border-t border-line bg-white md:hidden">
+          <div className="mx-auto max-h-[70vh] max-w-7xl overflow-y-auto px-4 py-4 sm:px-6">
+            <Link
+              to="/catalogo"
+              onClick={closeMenu}
+              className="block rounded-lg px-3 py-2 text-base font-semibold text-ink transition-colors duration-150 hover:bg-leaf-soft hover:text-leaf-deep"
+            >
+              Ver catálogo
+            </Link>
+
+            <div className="mt-1 border-t border-line pt-2">
+              <p className="px-3 pb-1 text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                Categorías
+              </p>
+              {categories.map((c) => (
+                <Link
+                  key={c.id}
+                  to={`/catalogo?cat=${c.id}`}
+                  onClick={closeMenu}
+                  className="block rounded-lg px-3 py-2 text-sm font-medium text-ink transition-colors duration-150 hover:bg-leaf-soft hover:text-leaf-deep"
+                >
+                  {c.label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-1 border-t border-line pt-2">
+              {links.map((l) => (
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  onClick={closeMenu}
+                  className="block rounded-lg px-3 py-2 text-base font-medium text-ink transition-colors duration-150 hover:bg-leaf-soft hover:text-leaf-deep"
+                >
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </nav>
+      )}
     </header>
   )
 }
