@@ -52,6 +52,13 @@
   }
 }
 
+/* Campo de formulario reutilizable del panel admin. */
+@layer components {
+  .input {
+    @apply w-full rounded-xl border border-line bg-white px-3 py-2 text-sm text-ink outline-none focus:border-leaf focus:ring-2 focus:ring-leaf-soft;
+  }
+}
+
 /* Marquee de marcas (carrusel infinito). Solo transform, performante. */
 @keyframes marquee {
   from {
