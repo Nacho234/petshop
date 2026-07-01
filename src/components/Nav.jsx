@@ -41,7 +41,7 @@ export default function Nav() {
             </button>
 
             <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div className="rounded-2xl border border-line bg-surface p-2 shadow-lg">
+              <div className="rounded-2xl border border-line bg-white p-2 shadow-lg">
                 {categories.map((c) => (
                   <div key={c.id} className="px-1 py-1.5">
                     <Link
@@ -85,7 +85,7 @@ export default function Nav() {
             type="button"
             onClick={() => setOpen(true)}
             aria-label={`Abrir carrito${totalItems ? ` (${totalItems})` : ''}`}
-            className="relative grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-line bg-surface text-ink transition-colors duration-200 hover:border-leaf hover:text-leaf"
+            className="relative grid h-11 w-11 cursor-pointer place-items-center rounded-full border border-line bg-white text-ink transition-colors duration-200 hover:border-leaf hover:text-leaf"
           >
             <ShoppingCartSimple size={20} weight="bold" />
             {totalItems > 0 && (

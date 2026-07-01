@@ -98,7 +98,7 @@ export default function Cart() {
             transition={{ type: 'tween', duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             role="dialog"
             aria-label="Carrito de compras"
-            className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-cream shadow-2xl"
+            className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col bg-gradient-to-b from-zinc-100 to-zinc-300 shadow-2xl"
           >
             {/* header */}
             <div className="flex items-center justify-between border-b border-line px-5 py-4">
@@ -137,7 +137,7 @@ export default function Cart() {
               {view === 'cart' &&
                 (items.length === 0 ? (
                   <div className="flex h-full flex-col items-center justify-center gap-3 text-center">
-                    <span className="grid h-16 w-16 place-items-center rounded-full bg-cream-deep text-ink-soft">
+                    <span className="grid h-16 w-16 place-items-center rounded-full bg-white text-ink-soft">
                       <ShoppingCartSimple size={28} weight="duotone" />
                     </span>
                     <p className="font-semibold text-ink">Tu carrito está vacío</p>

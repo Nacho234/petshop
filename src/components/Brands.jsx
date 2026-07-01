@@ -31,7 +31,7 @@ export default function Brands() {
   const reduce = useReducedMotion()
 
   return (
-    <section aria-label="Marcas de alimento que trabajamos" className="border-y border-line bg-surface py-8">
+    <section aria-label="Marcas de alimento que trabajamos" className="border-y border-line bg-white py-8">
       {reduce ? (
         // Reduced-motion: lista estática centrada, sin desplazamiento.
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-8 gap-y-4 px-4">

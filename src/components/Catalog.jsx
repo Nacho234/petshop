@@ -21,7 +21,7 @@ function ProductCard({ p, reduce }) {
       animate={{ opacity: 1, scale: 1 }}
       exit={reduce ? undefined : { opacity: 0, scale: 0.96 }}
       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-      className="group flex flex-col overflow-hidden rounded-card border border-line bg-surface shadow-sm"
+      className="group flex flex-col overflow-hidden rounded-card border border-line bg-white shadow-sm"
     >
       <div className="relative aspect-square overflow-hidden bg-cream-deep">
         <img
@@ -87,82 +87,105 @@ export default function Catalog({ active, setActive }) {
 
   return (
     <section id="catalogo" className="scroll-mt-20 bg-white py-20 lg:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Catálogo
-            </h2>
-            <p className="mt-3 max-w-[50ch] text-ink-soft">
-              Una selección de lo que tenemos en góndola. Precios actualizados al día.
-            </p>
-          </div>
-
-          {/* filter pills */}
-          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filtrar por categoría">
-            {filters.map((flt) => {
-              const on = active === flt.id
-              return (
-                <button
-                  key={flt.id}
-                  role="tab"
-                  aria-selected={on}
-                  onClick={() => setActive(flt.id)}
-                  className={`cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 active:translate-y-px ${
-                    on
-                      ? 'bg-leaf text-white shadow-sm'
-                      : 'border border-line bg-surface text-ink-soft hover:border-leaf hover:text-leaf'
-                  }`}
-                >
-                  {flt.label}
-                </button>
-              )
-            })}
-          </div>
+      <div className="mx-auto max-w-[100rem] px-4 sm:px-6 lg:px-10">
+        <div className="max-w-[50ch]">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+            Catálogo
+          </h2>
+          <p className="mt-3 text-ink-soft">
+            Una selección de lo que tenemos en góndola. Precios actualizados al día.
+          </p>
         </div>
 
-        {/* segunda fila: subcategorías de la categoría activa */}
-        {subFilters.length > 0 && (
-          <div className="mt-4 flex flex-wrap gap-2" role="tablist" aria-label="Filtrar por subcategoría">
-            {subFilters.map((sub) => {
-              const on = active === sub.id
-              return (
-                <button
-                  key={sub.id}
-                  role="tab"
-                  aria-selected={on}
-                  onClick={() => setActive(sub.id)}
-                  className={`cursor-pointer rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-200 active:translate-y-px ${
-                    on
-                      ? 'bg-leaf-soft text-leaf-deep ring-1 ring-leaf'
-                      : 'border border-line bg-surface text-ink-soft hover:border-leaf hover:text-leaf'
-                  }`}
-                >
-                  {sub.label}
-                </button>
-              )
-            })}
-          </div>
-        )}
+        <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-10">
+          {/* sidebar de filtros */}
+          <aside className="lg:w-64 lg:shrink-0">
+            <div className="rounded-card border border-line bg-white p-5 shadow-sm lg:sticky lg:top-24">
+              <p className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-soft">
+                Categorías
+              </p>
+              <div
+                className="mt-3 flex flex-col gap-1.5"
+                role="tablist"
+                aria-label="Filtrar por categoría"
+              >
+                {filters.map((flt) => {
+                  const on = active === flt.id
+                  return (
+                    <button
+                      key={flt.id}
+                      role="tab"
+                      aria-selected={on}
+                      onClick={() => setActive(flt.id)}
+                      className={`cursor-pointer rounded-full px-4 py-2 text-left text-sm font-semibold transition-all duration-200 ${
+                        on
+                          ? 'bg-leaf text-white shadow-sm'
+                          : 'text-ink-soft hover:bg-leaf-soft hover:text-leaf-deep'
+                      }`}
+                    >
+                      {flt.label}
+                    </button>
+                  )
+                })}
+              </div>
 
-        <motion.div
-          layout={!reduce}
-          className="mt-10 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4"
-        >
-          <AnimatePresence mode="popLayout">
-            {shown.map((p) => (
-              <ProductCard key={p.id} p={p} reduce={reduce} />
-            ))}
-          </AnimatePresence>
-        </motion.div>
+              {/* subcategorías de la categoría activa */}
+              {subFilters.length > 0 && (
+                <div className="mt-4 border-t border-line pt-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-soft">
+                    Subcategorías
+                  </p>
+                  <div
+                    className="mt-3 flex flex-col gap-1"
+                    role="tablist"
+                    aria-label="Filtrar por subcategoría"
+                  >
+                    {subFilters.map((sub) => {
+                      const on = active === sub.id
+                      return (
+                        <button
+                          key={sub.id}
+                          role="tab"
+                          aria-selected={on}
+                          onClick={() => setActive(sub.id)}
+                          className={`cursor-pointer rounded-full px-3.5 py-1.5 text-left text-xs font-semibold transition-all duration-200 ${
+                            on
+                              ? 'bg-leaf-soft text-leaf-deep ring-1 ring-leaf'
+                              : 'text-ink-soft hover:bg-leaf-soft hover:text-leaf'
+                          }`}
+                        >
+                          {sub.label}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          </aside>
 
-        {shown.length === 0 && (
-          <div className="mt-12 flex flex-col items-center gap-3 rounded-card border border-dashed border-line bg-surface py-16 text-center">
-            <PawPrint size={32} className="text-leaf" weight="duotone" />
-            <p className="font-semibold text-ink">Todavía no hay productos en esta categoría.</p>
-            <p className="text-sm text-ink-soft">Probá con otra o escribinos y lo conseguimos.</p>
+          {/* grilla de productos */}
+          <div className="flex-1">
+            <motion.div
+              layout={!reduce}
+              className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4"
+            >
+              <AnimatePresence mode="popLayout">
+                {shown.map((p) => (
+                  <ProductCard key={p.id} p={p} reduce={reduce} />
+                ))}
+              </AnimatePresence>
+            </motion.div>
+
+            {shown.length === 0 && (
+              <div className="flex flex-col items-center gap-3 rounded-card border border-dashed border-line bg-surface py-16 text-center">
+                <PawPrint size={32} className="text-leaf" weight="duotone" />
+                <p className="font-semibold text-ink">Todavía no hay productos en esta categoría.</p>
+                <p className="text-sm text-ink-soft">Probá con otra o escribinos y lo conseguimos.</p>
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </section>
   )
