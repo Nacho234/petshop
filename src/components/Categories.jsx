@@ -15,7 +15,8 @@ export default function Categories() {
   const reduce = useReducedMotion()
 
   return (
-    <section id="categorias" className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:py-32">
+    <section id="categorias" className="bg-white">
+     <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:py-32">
       <Reveal>
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center gap-3">
@@ -44,7 +45,7 @@ export default function Categories() {
               transition={{ type: 'spring', stiffness: 260, damping: 22 }}
               className="group mx-auto flex max-w-[16.5rem] cursor-pointer flex-col items-center text-center"
             >
-              <div className="aspect-square w-full overflow-hidden rounded-full bg-cream-deep shadow-sm ring-4 ring-leaf-soft ring-offset-4 ring-offset-cream transition-all duration-300 group-hover:shadow-md group-hover:ring-leaf">
+              <div className="aspect-square w-full overflow-hidden rounded-full bg-cream-deep shadow-sm ring-4 ring-leaf-soft ring-offset-4 ring-offset-white transition-all duration-300 group-hover:shadow-md group-hover:ring-leaf">
                 <img
                   src={fotos[c.id] || c.img}
                   alt={`Foto de ${c.label}`}
@@ -64,6 +65,7 @@ export default function Categories() {
           </Reveal>
         ))}
       </div>
+     </div>
     </section>
   )
 }
