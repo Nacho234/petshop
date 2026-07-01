@@ -6,8 +6,9 @@ import { useCart } from '../cart/cartStore'
 
 const links = [
   { to: '/peluqueria', label: 'Peluquería' },
+  { to: '/nosotros', label: 'Nosotros' },
   { to: '/#mayorista', label: 'Por mayor' },
-  { to: '/#ubicacion', label: 'Ubicación' },
+  { to: '/ubicacion', label: 'Ubicación' },
 ]
 
 export default function Nav() {

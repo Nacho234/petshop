@@ -1,9 +1,5 @@
 import { Link } from 'react-router-dom'
-import { WhatsappLogo, InstagramLogo, MapPin, Clock, ArrowUpRight, CreditCard } from '../icons'
-
-const ADDRESS = 'Avellaneda 1796, Rosario, Santa Fe'
-const MAP_EMBED = `https://maps.google.com/maps?q=${encodeURIComponent(ADDRESS)}&z=16&output=embed`
-const MAP_DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(ADDRESS)}`
+import { WhatsappLogo, InstagramLogo, MapPin, Clock, CreditCard } from '../icons'
 
 const cols = [
   {
@@ -29,9 +25,9 @@ export default function Footer() {
   return (
     <footer id="contacto" className="border-t border-line bg-white">
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* brand */}
-          <div className="md:col-span-2 lg:col-span-5">
+          <div className="md:col-span-2 lg:col-span-2">
             <Link to="/" className="flex items-center gap-2.5" aria-label="Zafari · inicio">
               <img src="/logo-zafari.png" alt="Zafari" width={160} height={160} className="h-14 w-auto" />
             </Link>
@@ -77,7 +73,7 @@ export default function Footer() {
           </div>
 
           {cols.map((col) => (
-            <div key={col.title} className="lg:col-span-2">
+            <div key={col.title} className="lg:col-span-1">
               <h3 className="font-display text-sm font-bold uppercase tracking-wide text-ink">
                 {col.title}
               </h3>
@@ -105,35 +101,6 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* mapa · ubicación */}
-          <div id="ubicacion" className="scroll-mt-20 md:col-span-2 lg:col-span-3">
-            <h3 className="font-display text-sm font-bold uppercase tracking-wide text-ink">
-              Dónde estamos
-            </h3>
-            <div className="mt-4 overflow-hidden rounded-card border border-line shadow-sm">
-              <iframe
-                title="Mapa de Zafari en Avellaneda 1796, Rosario"
-                src={MAP_EMBED}
-                className="h-44 w-full"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-            <a
-              href={MAP_DIRECTIONS}
-              target="_blank"
-              rel="noreferrer"
-              className="group mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-leaf transition-colors duration-200 hover:text-leaf-deep"
-            >
-              Cómo llegar
-              <ArrowUpRight
-                size={16}
-                weight="bold"
-                className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
-            </a>
-          </div>
         </div>
 
         {/* medios de pago */}

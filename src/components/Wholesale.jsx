@@ -10,7 +10,7 @@ export default function Wholesale() {
   return (
     <section id="mayorista" className="mx-auto max-w-7xl px-4 pb-4 sm:px-6">
       <Reveal>
-        <div className="flex flex-col items-start gap-6 rounded-card border border-line bg-surface p-8 sm:p-10 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col items-start gap-6 rounded-card border border-line bg-white p-8 sm:p-10 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 rounded-full bg-leaf-soft px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-leaf-deep">
               <Storefront size={14} weight="fill" />

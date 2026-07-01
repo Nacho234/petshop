@@ -2,17 +2,17 @@
 
 /*
   Zafari Petshop — design tokens
-  Page theme LOCKED to light (warm cream brand identity, per intentional decision).
+  Page theme LOCKED to light (clean white surfaces, per intentional decision).
   One accent: forest green. Soft radius system. Friendly grotesque type.
 */
 @theme {
   --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
 
-  /* Warm paper neutrals */
-  --color-cream: #faf6ee;
-  --color-cream-deep: #f3ecdf;
-  --color-surface: #fffdf8;
+  /* Surfaces — white (beige neutrals retired). Borders keep the warm tan line. */
+  --color-cream: #ffffff;
+  --color-cream-deep: #ffffff;
+  --color-surface: #ffffff;
   --color-ink: #23231f;
   --color-ink-soft: #5c5b52;
   --color-line: #e7dfce;
