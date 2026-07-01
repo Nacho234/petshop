@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { Heart, PawPrint, Plus } from '../icons'
-import { products, categories, fmtPrice } from '../data'
+import { categories, fmtPrice } from '../data'
 import { useCart } from '../cart/cartStore'
+import { useProducts } from '../store/productsStore'
 
 const filters = [{ id: 'todos', label: 'Todos' }, ...categories.map((c) => ({ id: c.id, label: c.label }))]
 
@@ -71,12 +72,13 @@ function ProductCard({ p, reduce }) {
 
 export default function Catalog({ active, setActive }) {
   const reduce = useReducedMotion()
+  const { products } = useProducts()
   const shown = useMemo(
     () =>
       active === 'todos'
         ? products
         : products.filter((p) => p.cat === active || p.sub === active),
-    [active],
+    [active, products],
   )
 
   // Subcategorías a mostrar: las de la categoría activa (si tiene).
