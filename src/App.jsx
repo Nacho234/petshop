@@ -5,6 +5,7 @@ import CatalogPage from './pages/CatalogPage'
 import GroomingPage from './pages/GroomingPage'
 import AboutPage from './pages/AboutPage'
 import LocationPage from './pages/LocationPage'
+import AdminApp from './admin/AdminApp'
 
 export default function App() {
   return (
@@ -16,6 +17,9 @@ export default function App() {
         <Route path="nosotros" element={<AboutPage />} />
         <Route path="ubicacion" element={<LocationPage />} />
       </Route>
+
+      {/* Panel de administración (una sola página con tabs) */}
+      <Route path="/admin" element={<AdminApp />} />
     </Routes>
   )
 }
