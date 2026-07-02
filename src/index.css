@@ -59,6 +59,32 @@
   }
 }
 
+/* Degradé de marca (verde bosque → miel) que se desplaza suave. Para títulos
+   y detalles de la sección Nosotros. */
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.text-grad-zafari {
+  background-image: linear-gradient(90deg, #245f47, #2e7d5b 38%, #f0c14b 72%, #2e7d5b);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-pan 7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-grad-zafari {
+    animation: none;
+  }
+}
+
 /* Marquee de marcas (carrusel infinito). Solo transform, performante. */
 @keyframes marquee {
   from {
